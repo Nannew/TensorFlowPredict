@@ -10,7 +10,7 @@
 1. The latest TensorFlow version I build successfully is 1.10.0 with CUDA 9.0 and 10.0. Because Google decided to use their own Bazel and stop supporting CMake. Therefore, it will be difficult to build a new TensorFlow version.
 2. Only "Release" configuration can be built. No "Debug" configuration.
 3. When building TensorFlow, you also need to build the "Install". The install path can be modified from CMake.
-4. The article 	[Building a standalone C++ Tensorflow program on Windows](https://joe-antognini.github.io/machine-learning/windows-tf-project) gives some insight about how to build a static C++ Tensorflow library on Windows. But, more changes are needed.
+4. The article 	[Building a standalone C++ Tensorflow program on Windows](https://joe-antognini.github.io/machine-learning/windows-tf-project) gives some insight about how to build a static C++ Tensorflow library on Windows. However, more changes are needed to build TensorFlow.
 
 
 ## How to link TensorFlow as an external library for your project in CMake
@@ -25,7 +25,7 @@
 <img src="../master/Data/TransformGraph.png?raw=true" width="700" >
 
 ## An example of TensorFlowPredict Project
-* I use semantic segmentation as an example. The model is trained by DeepLav v3+ in Python. I used a pre-trained model on VOC2012 dataset as the starting checkpoint. The last layer is changed to apply a transfer learning on a new dataset with two classes: 1 for foreground device and 0 for background. The weights of different classes are modified accordingly to achieve better MIOU result.
+* I use semantic segmentation as an example. The model is trained by DeepLab v3+ in Python. I used a pre-trained model on VOC2012 dataset as the starting checkpoint. The last layer is changed to apply a transfer learning to a new dataset with two classes: 1 for foreground device and 0 for background. The weights of different classes are modified accordingly to achieve better MIOU result.
 
 * The pre-trained model is not uploaded to the repository. See [optimized_graph_500_500.pb](https://drive.google.com/file/d/1m1EtdutciAbcgHDLsoCeKI92I-VEs_4K/view?usp=sharing)
 
