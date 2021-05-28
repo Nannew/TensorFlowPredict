@@ -22,7 +22,7 @@
 1. When training a model in Python, you can use a different TensorFlow version to get better performance. However, you need to use the same version of your TensorFlow C++ API when you freeze and export the model.
 2. Optimize the model with the TensorFLow "transorm_graph" project you build in C++ with CMake. Make sure the input and output layer names are agreed with later prediction codes. The following picture gives an example.
 
-<img src="../master/Data/Example.png?raw=true" width="600" >
+<img src="../master/Data/TransformGraph.png?raw=true" width="700" >
 
 ## An example of TensorFlowPredict Project
 * We use semantic segmentation as an example. The model is trained by DeepLav v3+ in Python. I used a pre-trained model on VOC2012 dataset as the starting checkpoint. The last layer is changed to apply a transfer learning on a new dataset with two classes: 1 for foreground device and 0 for background. The weights of different classes are modified accordingly to achieve better MIOU result.
@@ -33,10 +33,11 @@
 *We run 20 times on the input image to measure the average performance of TensorFlow Prediction on the GPU. The code is tested on a computer with a GeForce GTX 1080 GPU.
 The first run is slow (7.579 sec) because TensorFlow session needs a warmup period. From the second run, the prediction will become faster (0.05 sec).*
 
-<img src="../master/Data/test.png?raw=true" width="400" height="400">
+<img src="../master/Data/Example.png?raw=true" width="700" >
+
 
 *The input image and predicted output mask. The same input image will always produce the same prediction mask because the model has been frozen*
 
-<img src="../media/images/test_mask.png?raw=true" width="400" height="400">
+<img src="../master/Data/test.png?raw=true" width="400" height="400">  <img src="../master/Data/test_mask.png?raw=true" width="400" height="400">
 
 
